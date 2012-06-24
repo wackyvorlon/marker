@@ -1,5 +1,6 @@
 #!/usr/bin/perl -w
 
+use diagnostics;
 use Tie::File;
 
 tie @array, 'Tie::File', bork or die "She is angry, $!";
