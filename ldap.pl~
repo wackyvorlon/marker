@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+
+use Net::LDAP;
+
+$ldap = Net::LDAP->new("socr.uwindsor.ca") or die "$@";
+
+$mesg = $ldap->bind;
+$mesg = $ldap->search(base => "c=CA");
+
