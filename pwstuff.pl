@@ -7,5 +7,7 @@ open(pwfile, "glurp");
 chmod(@entries=<pwfile>);
 
 foreach (@entries) {
-  print $_;
+  #print $_;
+  ($user,$pw,$uid,$gid,$gecos,$home,$shell) = split(':', $_);
+  print "Name: $user \n";
 }
