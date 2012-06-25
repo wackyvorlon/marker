@@ -1,16 +1,19 @@
 #!/usr/bin/perl
 
 use diagnostics;
-use Crypt::SSLeay;
+use Digest::MD5 qw(md5 md5_hex md5_base64);
 
 open(INPUT, "<glurp") or die $!;
 
-$md=Crypt::SSLeay::MD->new("md5");
+$foo = Digest::MD5->new;
 
-while (<INPUT>) {
-  $md->update($_);
-}
+$foo->addfile(INPUT);
 
-print unpack("H*",$md->final);
+$digest = $foo->digest;
+
+print $digest;
+
+
+
 
 print "\n";
