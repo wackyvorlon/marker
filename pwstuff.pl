@@ -10,6 +10,9 @@ chmod(@entries=<PWFILE>);
 foreach (@entries) {
   #print $_;
   ($user,$pw,$uid,$gid,$gecos,$home,$shell) = split(':', $_);
+  if ($user=~/#/) {
+    next;
+  }
   print "Name: $user \n";
   print OUTFILE join(':',$user,$shell);
 }
