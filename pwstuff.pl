@@ -5,7 +5,7 @@ use diagnostics;
 open(PWFILE, "glurp");
 open(OUTFILE, ">output");
 
-chmod(@entries=<PWFILE>);
+chomp(@entries=<PWFILE>);
 
 foreach (@entries) {
   #print $_;
