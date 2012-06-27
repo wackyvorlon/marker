@@ -8,6 +8,7 @@ use Lingua::Stem::En;
 use Lingua::EN::StopWords qw(%StopWords);
 use List::Util qw(sum);
 use strict;
+use warnings;
 
 my %base;
 my %per_file;
