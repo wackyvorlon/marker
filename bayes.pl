@@ -7,7 +7,7 @@ use Algorithm::Naivebayes;
 use Data::Dumper;
 use Lingua::EN::Splitter qw(words);
 use Lingua::EN::StopWords qw(%StopWords);
-use File::Slurp;
+use File::Slurp::Unicode;
 
 sub invert_string {
   #Takes string input, creates hash of words weighted by count.
