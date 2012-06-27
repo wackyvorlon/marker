@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 use diagnostics;
-use YAML::XS qw(LoadFile);
+use YAML::XS qw(LoadFile Dump);
 use Data::Dumper;
 
 #open(INFILE, "<yaml") or die $!;
@@ -12,4 +12,6 @@ use Data::Dumper;
 
 %data = LoadFile("yaml") or die $!;
 
-print Dumper(\%data);
+#print Dumper(\%data);
+
+print Dump(\%data);
