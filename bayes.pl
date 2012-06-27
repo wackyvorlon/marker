@@ -53,7 +53,11 @@ $nb->add_instance(attributes => \%newhash, label => 'wonderland');
 
 $nb->train;
 
-my $result = $nb->predict(attributes => \%newhash);
+my %testhash;
+$input3 = read_file('input3.txt');
+invert_string($input3, 1, \%testhash);
+
+my $result = $nb->predict(attributes => \%testhash);
 
 print Dumper(\$result);
 
