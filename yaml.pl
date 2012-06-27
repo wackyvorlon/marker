@@ -6,4 +6,12 @@ use YAML::XS;
 
 #print YAML::XS::Dumper(@array);
 
-print Dump(@array);
+#print Dump(@array);
+
+%snert = (
+	 "alpha" => "beta",
+	 "delta" => "gamma",
+	 "kappa" => "mu"
+);
+
+print Dump(\%snert, \@array);
