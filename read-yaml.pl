@@ -5,6 +5,6 @@ use YAML::XS;
 
 open(INFILE, "<yaml") or die $!;
 
-$info = <INFILE>;
+@info = <INFILE>;
 
-print $info;>
+print @info;
