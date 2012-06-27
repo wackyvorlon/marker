@@ -39,9 +39,21 @@ invert_string($text, 1, \%valhash);  #Generate hash of words with word count.
 
 $nb->add_instance(attributes => \%valhash, label => 'prince');
 
+#$nb->train;
+
+#my $result = $nb->predict(attributes => \%valhash);
+
+$subject = read_file('input2.txt'); #Read next document.
+
+my %newhash;
+
+invert_string($subject, 1, \%newhash);
+
+$nb->add_instance(attributes => \%newhash, label => 'wonderland');
+
 $nb->train;
 
-my $result = $nb->predict(attributes => \%valhash);
+my $result = $nb->predict(attributes => \%newhash);
 
 print Dumper(\$result);
 
