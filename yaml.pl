@@ -6,4 +6,4 @@ use YAML::XS;
 
 #print YAML::XS::Dumper(@array);
 
-$yaml=Dump(@array);
+print Dump(@array);
