@@ -19,15 +19,15 @@ sub invert_string {
 
 my $nb = Algorithm::NaiveBayes->new;
 
-$nb->add_instance(attributes => {foo => 1, bar => 1, baz => 3}, label => 'sports');
+#$nb->add_instance(attributes => {foo => 1, bar => 1, baz => 3}, label => 'sports');
 
-$nb->add_instance(attributes => {foo => 2, blurp => 1}, label => ['sports','finance']);
+#$nb->add_instance(attributes => {foo => 2, blurp => 1}, label => ['sports','finance']);
 
-$nb->train;
+#$nb->train;
 
-my $result = $nb->predict(attributes => {bar => 3, blurp => 2});
+#my $result = $nb->predict(attributes => {bar => 3, blurp => 2});
 
-print Dumper(\$result);
+#print Dumper(\$result);
 
 $text=read_file('input.txt');
 
@@ -35,5 +35,13 @@ my %valhash;
 
 invert_string($text, 1, \%valhash);  #Generate hash of words with word count.
 
-print Dumper(\%valhash);
+#print Dumper(\%valhash);
+
+$nb->add_instance(attributes => \%valhash, label => 'prince');
+
+$nb->train;
+
+my $result = $nb->predict(attributes => \%valhash);
+
+print Dumper(\$result);
 
