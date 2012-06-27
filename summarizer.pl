@@ -57,6 +57,6 @@ for my $file (<*.txt>) {
       keys %markings;
     my @selected =
       sort { $markings{$a}->{order} <=> $markings{$b}->{order} }
-      @sorted[ 0 .. 9 ];
+      @sorted[ 0 .. 9 ]; #Grab 10 sentences for the summary.
     print "@selected\n\n";
 }
