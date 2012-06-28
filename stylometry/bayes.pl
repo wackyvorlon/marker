@@ -9,11 +9,12 @@ use Lingua::EN::Splitter qw(words);
 use Lingua::EN::StopWords qw(%StopWords);
 use File::Slurp::Unicode;
 
-$Lingua::EN::Splitter::NON_WORD_CHARACTER=qr/\W/;
+#$Lingua::EN::Splitter::NON_WORD_CHARACTER=qr/\W/;
 
 sub invert_string {
   #Takes string input, creates hash of words weighted by count.
   my ($string,$weight,$hash) = @_;
+  $string =~ s/\[|\]//g;
   $hash->{$_} += $weight for
     grep {!$StopWords{$_}}
       @{words(lc($string))};
@@ -31,7 +32,7 @@ my $nb = Algorithm::NaiveBayes->new;
 
 #print Dumper(\$result);
 
-$text=read_file('input.txt');
+$text=read_file('002.txt');
 
 my %valhash;
 
@@ -39,7 +40,7 @@ invert_string($text, 1, \%valhash);  #Generate hash of words with word count.
 
 #print Dumper(\%valhash);
 
-$nb->add_instance(attributes => \%valhash, label => 'prince');
+$nb->add_instance(attributes => \%valhash, label => 'rhynch');
 
 #$nb->train;
 
@@ -56,7 +57,7 @@ $nb->add_instance(attributes => \%newhash, label => 'wonderland');
 $nb->train;
 
 my %testhash;
-$input3 = read_file('input3.txt');
+$input3 = read_file('001.txt');
 invert_string($input3, 1, \%testhash);
 
 my $result = $nb->predict(attributes => \%testhash);
