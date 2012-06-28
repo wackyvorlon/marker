@@ -1,0 +1,2 @@
+bayes.pl in this directory is an implementation of a Bayesian comparer to determine authorship
+that has been modified to work with unicode. Now waiting on other source documents.
