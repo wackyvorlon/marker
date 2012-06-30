@@ -2,11 +2,11 @@
 
 #Load modules, use MD5 hash to identify already seen documents. Result of processing stored in a hash tied to a file.
 
-use Digest::MD5;
-#use Tie::Hash;
-use Text::Markdown;
-use File::Slurp;
-use diagnostics;
+use Cache::Cache;   #Handles caching.
+use Digest::MD5;    #MD5 hash determines if we've seen this doc before.
+use Text::Markdown; #Convert markdown to HTML
+use File::Slurp;    #Generic functions for reading in files.
+use diagnostics;    #Gives more informative errors.
 
 my %seen;
 
