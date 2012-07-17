@@ -55,10 +55,11 @@ while (<>) {
   $final =0;
   
   while ($value = shift @val) {
+    #print $val[0];
     if ($singles{$value}) {
-      if ($others{$val[1]}) {
+      if ($others{$val[0]}) {
 	print "Power of ten...";
-	$final += $singles{$value}*$others{$val[1]};
+	$final += $singles{$value}*$others{$val[0]};
       } else {
 	print "No power of ten.";
 	$final += $singles{$value};
