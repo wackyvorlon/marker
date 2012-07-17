@@ -46,26 +46,27 @@ use diagnostics;
 
 # Lets get some data!
 
+
+
 while (<>) {
   #print $_;
   chomp; # Remove spurious newline.
   my @val = split; #Extract words.
   $final =0;
   
-  foreach my $value (@val) {
+  while ($value = shift @val) {
     if ($singles{$value}) {
-      $final += $singles{$value};
-      $prev=$singles{$value};
-    } elsif ($teens{$value}) {
-      $final += $teens{$value};
-      $prev=$teens{$value};
-    } elsif ($tens{$value}) {
-      $final += $tens{$value};
-      $prev=$tens{$value};
-    } elsif ($others{$value}) {
-      $final += $others{$value}*$prev;
+      if ($others{$val[1]}) {
+	print "Power of ten...";
+	$final += $singles{$value}*$others{$val[1]};
+      } else {
+	print "No power of ten.";
+	$final += $singles{$value};
+      }
     }
+  }
+
     
   }
-  print "\n";
+  print "$final\n";
 }
