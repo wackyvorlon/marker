@@ -67,6 +67,6 @@ while (<>) {
   }
 
     
-  }
+  
   print "$final\n";
 }
