@@ -10,15 +10,19 @@ use Expect;
 $exp=new Expect;
 $exp->raw_pty(1);
 
+$from=1;
+$from=$ARGV[0] if $ARGV[0]; # If there's a value on the command line, use that instead.
+
 $to=10;
-$to=$ARGV[0] if $ARGV[0]; # If there's a value on the command line, use that instead.
+$to=$ARGV[1] if $ARGV[1];
+
 
 $exp->spawn("../ass2");
 
 $errors=0;
 
 
-for (1..$to) {
+for ($from..$to) {
     $num=to_string($_);
     $num =~ s/-/ /g;
     $num =~ s/ and//g; # Jeff's code barfs on the word "and".
