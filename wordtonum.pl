@@ -2,10 +2,11 @@
 
 #Convert words on stdin to numbers.
 use diagnostics;
+use strict;
 
 # Define our hashes.
 
-%nums = (
+my %nums = (
     'ten'       => 10,
     'eleven'    => 11,
     'twelve'    => 12,
@@ -35,7 +36,7 @@ use diagnostics;
     'nine'      => 9
 );
 
-%others = (
+my %others = (
     'hundred'  => 100,
     'thousand' => 1000,
     'million'  => 1000000
@@ -48,9 +49,9 @@ while (<>) {
     #print $_;
     chomp;    # Remove spurious newline.
     my @val = split;    #Extract words.
-    $final = 0;
+    my $final = 0;
 
-    while ( $value = shift @val ) {
+    while ( my $value = shift @val ) {
 
         #print $val[0];
         if ( $nums{$value} ) {
