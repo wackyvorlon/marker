@@ -8,17 +8,35 @@ use warnings;
 #use strict;
 use diagnostics;
 use File::Slurp;
+use File::Basename;
 use Text::MultiMarkdown qw(markdown);
 
 die "Nothing on command line!\n" unless @ARGV;   # Need some filenames.
 
-$tmpl=read_file($ARGV[0]) or die $!;  # First file is the template.
-$input=read_file($ARGV[1]) or die $!; # Second is our input.
+#$tmpl=read_file($ARGV[0]) or die $!;  # First file is the template.
+#$input=read_file($ARGV[1]) or die $!; # Second is our input.
 
-$html = markdown($input);
-$tmpl =~ s/HERE/$html/;
+#$html = markdown($input);
+#$tmpl =~ s/HERE/$html/;
 
-write_file($ARGV[2], $tmpl) or die $!;
+#write_file($ARGV[2], $tmpl) or die $!;
+
+#Snarf data.
+#$page=read_file($ARGV[0]) or die $!;
+
+#Look for include directives.
+
+#Parse the markdown.
+
+$html=markdown($page);
+
+#Dump to disk.
+$fname=$ARGV[0];
+$fname=~ s/\.md//;
+
+print STDERR "Output filename: $fname\n";
+
+#write_file($fname) or die $!;
 
 
 
