@@ -26,7 +26,7 @@ __END__
 
 =head1 NAME
 
-templater.pl - Describe the usage of script briefly
+templater.pl - Processes markdown templates for SOCR.
 
 =head1 SYNOPSIS
 
@@ -36,11 +36,11 @@ templater.pl [options] args
 
 =head1 DESCRIPTION
 
-Stub documentation for templater.pl, 
+Takes a template and processes it. include directive causes loading of named file.
 
 =head1 AUTHOR
 
-Paul Anderson, E<lt>wackyvorlon@paul-andersons-macbook-pro-3.localE<gt>
+Paul Anderson, E<lt>ander1x@uwindsor.caE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
