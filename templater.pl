@@ -33,6 +33,7 @@ $html=markdown($page);
 #Dump to disk.
 $fname=$ARGV[0];
 $fname=~ s/\.md//;
+$fname=$fname.".html";
 
 print STDERR "Output filename: $fname\n";
 
