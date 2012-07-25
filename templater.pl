@@ -11,6 +11,9 @@ use File::Slurp;
 use Text::MultiMarkdown qw(markdown);
 use YAML::Tiny;
 use Data::Dumper;
+use autodie;
+
+
 
 die "Nothing on command line!\n" unless @ARGV;    # Need some filenames.
 
