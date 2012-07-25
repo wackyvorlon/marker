@@ -29,17 +29,20 @@ $input = read_file( $ARGV[0] ) or die $!;
 
 # Do magic!
 
-for ($input) {
+for ($tplcontents) {
     s/include (.*)/read_file($1) /ge;
 }
+
+$contents = markdown($tplcontents);
+
 
 # Process markdown.
 $html = markdown($input);
 
 # Insert HTML into template.
-$tplcontents =~ s/HERE/$html/;
+$contents =~ s/HERE/$html/;
 
-print $tplcontents;
+print $contents;
 
 #Dump to disk.
 $fname = $ARGV[0];
@@ -48,7 +51,7 @@ $fname = $fname . ".html";
 
 print STDERR "Output filename: $fname\n";
 
-#write_file($fname) or die $!;
+write_file($fname, $contents) or die $!;
 
 __END__
 
