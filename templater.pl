@@ -8,7 +8,6 @@
 #use strict;
 use diagnostics;
 use File::Slurp;
-use File::Basename;
 use Text::MultiMarkdown qw(markdown);
 use YAML::Tiny;
 use Data::Dumper;
