@@ -25,6 +25,12 @@ $tplcontents = read_file($tpl) or die $!;
 # Read in file on command line.
 $input = read_file( $ARGV[0] ) or die $!;
 
+if ( $input=~ m/include (.*)/) {
+    print $1;
+    
+    
+}
+
 # Process markdown.
 $html = markdown($input);
 
