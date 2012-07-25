@@ -4,13 +4,13 @@
 # Created: 19 Jul 2012
 # Version: 0.01
 
-use warnings;
+#use warnings;
 #use strict;
 use diagnostics;
 use File::Slurp;
 use File::Basename;
 use Text::MultiMarkdown qw(markdown);
-use YAML;
+use YAML::Tiny;
 use Data::Dumper;
 
 
@@ -19,7 +19,7 @@ die "Nothing on command line!\n" unless @ARGV;   # Need some filenames.
 
 $values=YAML::LoadFile('config') or die $!;
 
-print $values{'alpha'};
+print $values{"alpha"};
 
 
 
