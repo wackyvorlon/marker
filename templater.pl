@@ -10,15 +10,18 @@ use diagnostics;
 use File::Slurp;
 use File::Basename;
 use Text::MultiMarkdown qw(markdown);
-use YAML::XS;
+use YAML;
+use Data::Dumper;
 
 
 die "Nothing on command line!\n" unless @ARGV;   # Need some filenames.
 
-$conf=read_file('config') or die $!;
-$values=Load($conf) or die $!;
+
+$values=YAML::LoadFile('config') or die $!;
 
 print $values{'alpha'};
+
+
 
 
 #$tmpl=read_file($ARGV[0]) or die $!;  # First file is the template.
