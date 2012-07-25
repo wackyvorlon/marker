@@ -10,8 +10,16 @@ use diagnostics;
 use File::Slurp;
 use File::Basename;
 use Text::MultiMarkdown qw(markdown);
+use YAML::XS;
+
 
 die "Nothing on command line!\n" unless @ARGV;   # Need some filenames.
+
+$conf=read_file('config') or die $!;
+$values=Load($conf) or die $!;
+
+print $values{'alpha'};
+
 
 #$tmpl=read_file($ARGV[0]) or die $!;  # First file is the template.
 #$input=read_file($ARGV[1]) or die $!; # Second is our input.
@@ -28,7 +36,7 @@ die "Nothing on command line!\n" unless @ARGV;   # Need some filenames.
 
 #Parse the markdown.
 
-$html=markdown($page);
+#$html=markdown($page);
 
 #Dump to disk.
 $fname=$ARGV[0];
