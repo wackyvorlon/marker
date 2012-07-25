@@ -42,7 +42,7 @@ $html = markdown($input);
 # Insert HTML into template.
 $contents =~ s/HERE/$html/;
 
-print $contents;
+#print $contents;
 
 #Dump to disk.
 $fname = $ARGV[0];
