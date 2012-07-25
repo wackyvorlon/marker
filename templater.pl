@@ -25,10 +25,18 @@ $tplcontents = read_file($tpl) or die $!;
 # Read in file on command line.
 $input = read_file( $ARGV[0] ) or die $!;
 
-if ( $input=~ m/include (.*)/) {
-    print $1;
+#foreach ( $input) {
+#    if ( m/include (.*)/) {
+#        print $1;
+#        
+#    }
+#}
+
+if ( @foo = $input=~ m/include (.*)/g) {
     
+    print Dumper(\@foo);
     
+        
 }
 
 # Process markdown.
