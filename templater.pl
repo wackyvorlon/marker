@@ -25,25 +25,10 @@ $tplcontents = read_file($tpl) or die $!;
 # Read in file on command line.
 $input = read_file( $ARGV[0] ) or die $!;
 
-#foreach ( $input) {
-#    if ( m/include (.*)/) {
-#        print $1;
-#        
-#    }
-#}
+# Do magic!
 
-for ( $input) {
-    #if ( m/include (.*)/g) {
-    #    print $1. "\n";
-    #    
-    #}
-    s/include (.*)/read_file($1) /ge
-}
-if ( @foo = $input=~ m/include (.*)/g) {
-    
-    print Dumper(\@foo);
-    
-        
+for ($input) {
+    s/include (.*)/read_file($1) /ge;
 }
 
 # Process markdown.
@@ -53,12 +38,6 @@ $html = markdown($input);
 $tplcontents =~ s/HERE/$html/;
 
 print $tplcontents;
-
-#Look for include directives.
-
-#Parse the markdown.
-
-#$html=markdown($page);
 
 #Dump to disk.
 $fname = $ARGV[0];
