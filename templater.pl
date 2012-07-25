@@ -18,16 +18,18 @@ die "Nothing on command line!\n" unless @ARGV;   # Need some filenames.
 
 
 $yaml=YAML::Tiny->read('config');
-$alpha=$yaml->[0]->{alpha};
+$tpl=$yaml->[0]->{template};
 
-print $alpha;
+$tplcontents = read_file($tpl) or die $!;
+
+$input=read_file($ARGV[0]) or die $!;
+$html = markdown($input);
+
+$tplcontents=~ s/HERE/$html/;
+
+print $tplcontents;
 
 
-
-
-
-#$tmpl=read_file($ARGV[0]) or die $!;  # First file is the template.
-#$input=read_file($ARGV[1]) or die $!; # Second is our input.
 
 #$html = markdown($input);
 #$tmpl =~ s/HERE/$html/;
