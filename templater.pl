@@ -17,9 +17,11 @@ use Data::Dumper;
 die "Nothing on command line!\n" unless @ARGV;   # Need some filenames.
 
 
-$values=YAML::LoadFile('config') or die $!;
+$yaml=YAML::Tiny->read('config');
+$alpha=$yaml->[0]->{alpha};
 
-print $values{"alpha"};
+print $alpha;
+
 
 
 
