@@ -13,31 +13,25 @@ use Text::MultiMarkdown qw(markdown);
 use YAML::Tiny;
 use Data::Dumper;
 
+die "Nothing on command line!\n" unless @ARGV;    # Need some filenames.
 
-die "Nothing on command line!\n" unless @ARGV;   # Need some filenames.
+# Grab name of template from config file.
+$yaml = YAML::Tiny->read('config');
+$tpl  = $yaml->[0]->{template};
 
-
-$yaml=YAML::Tiny->read('config');
-$tpl=$yaml->[0]->{template};
-
+# Read in contents of the template.
 $tplcontents = read_file($tpl) or die $!;
 
-$input=read_file($ARGV[0]) or die $!;
+# Read in file on command line.
+$input = read_file( $ARGV[0] ) or die $!;
+
+# Process markdown.
 $html = markdown($input);
 
-$tplcontents=~ s/HERE/$html/;
+# Insert HTML into template.
+$tplcontents =~ s/HERE/$html/;
 
 print $tplcontents;
-
-
-
-#$html = markdown($input);
-#$tmpl =~ s/HERE/$html/;
-
-#write_file($ARGV[2], $tmpl) or die $!;
-
-#Snarf data.
-#$page=read_file($ARGV[0]) or die $!;
 
 #Look for include directives.
 
@@ -46,15 +40,13 @@ print $tplcontents;
 #$html=markdown($page);
 
 #Dump to disk.
-$fname=$ARGV[0];
-$fname=~ s/\.md//;
-$fname=$fname.".html";
+$fname = $ARGV[0];
+$fname =~ s/\.md//;
+$fname = $fname . ".html";
 
 print STDERR "Output filename: $fname\n";
 
 #write_file($fname) or die $!;
-
-
 
 __END__
 
