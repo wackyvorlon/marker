@@ -32,6 +32,13 @@ $input = read_file( $ARGV[0] ) or die $!;
 #    }
 #}
 
+for ( $input) {
+    #if ( m/include (.*)/g) {
+    #    print $1. "\n";
+    #    
+    #}
+    s/include (.*)/read_file($1) /ge
+}
 if ( @foo = $input=~ m/include (.*)/g) {
     
     print Dumper(\@foo);
