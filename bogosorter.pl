@@ -10,20 +10,27 @@
 use Data::Dumper;
 use List::Util qw(shuffle);
 use Acme::Sort::Bogosort;
-use Benchmark qw(:all);
+use Benchmark qw(:all :hireswallclock);
 
 
-@foo = ( 1 .. 5 );
+@foo = ( 1 .. 50 );
 
 @bork=shuffle(@foo);
 
 
-print Dumper(\@bork);
+#print Dumper(\@bork);
 
-$result=timethis(5,sub {@foo2=bogosort(@bork)});
+$result=timethis(500,sub {@foo2=bogosort(@bork)});
 
 print Dumper(\@foo2);
 print timestr($result);
+
+$result2=timethis(500, sub { @foo2=sort @bork});
+
+$result3=timediff($result,$result2);
+
+print timestr($result3);
+
 
 
 __END__
