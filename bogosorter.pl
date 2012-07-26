@@ -12,26 +12,27 @@ use List::Util qw(shuffle);
 use Acme::Sort::Bogosort;
 use Benchmark qw(:all :hireswallclock);
 
+@foo = ( 1 .. 5 );
 
-@foo = ( 1 .. 50 );
-
-@bork=shuffle(@foo);
-
+@bork = shuffle(@foo);
 
 #print Dumper(\@bork);
 
-$result=timethis(500,sub {@foo2=bogosort(@bork)});
+$result = timethis( 5000, sub { @foo2 = bogosort(@bork) } );
 
-print Dumper(\@foo2);
+print "\nRunning bogosort...\n";
+
+#print Dumper( \@foo2 );
 print timestr($result);
 
-$result2=timethis(500, sub { @foo2=sort @bork});
-
-$result3=timediff($result,$result2);
-
-print timestr($result3);
+print "\nNow running regular sort...\n";
 
 
+$result2 = timethis( 500000, sub { @foo2 = sort @bork } );
+
+#$result3 = timediff( $result2, $result );
+
+print timestr($result2) . "\n";
 
 __END__
 
