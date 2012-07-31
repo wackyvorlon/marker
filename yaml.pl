@@ -2,7 +2,7 @@
 
 use YAML::XS;
 
-@array=qw( foo bork baz);
+#@array=qw( foo bork baz);
 
 #print YAML::XS::Dumper(@array);
 
@@ -14,4 +14,4 @@ use YAML::XS;
 	 "kappa" => "mu"
 );
 
-print Dump(\%snert, \@array);
+print Dump(\%snert);
