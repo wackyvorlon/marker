@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/myperl
 
 #Playing with Algorithm::NaiveBayes
 
