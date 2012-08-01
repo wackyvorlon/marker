@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/myperl -w
 # bogosorter.pl --- Playing with bogosort
 # Author: Paul Anderson <wackyvorlon@paul-andersons-macbook-pro-3.local>
 # Created: 26 Jul 2012

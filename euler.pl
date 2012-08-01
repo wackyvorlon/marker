@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/myperl
 
 #Euler problem 191
 
