@@ -45,9 +45,9 @@ $parser = qr{
         <part=(eaten|seen)>
     <token: AUX>
         (has | is)
-        (?{$MATCH=uc $^N })
+        (?{ $MATCH = uc $^N })
 
-        }x;
+}x;
 
 while (<>) {
     if ( $_=~$parser) {
