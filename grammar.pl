@@ -12,41 +12,41 @@ use Data::Dumper;
 
 $parser = qr{
     (?:
-        <Verb>              # Parse and save a Verb in a scalar
-        <.ws>               # Parse but don't save whitespace
-        <Noun>              # Parse and save a Noun in a scalar
+        <Verb>                 # Parse and save a Verb in a scalar
+        <.ws>                  # Parse but don't save whitespace
+        <Noun>                 # Parse and save a Noun in a scalar
 
         <type=(?{rand>0.5 ? 'VN' : 'VerbNoun'})>
-                            # Save the result of expression in a scalar
+                               # Save the result of expression in a scalar
     |
         (?:
-            <[Noun]>        # Parse a Noun and save the result in a list
-            <[PostNoun=ws]> # Parse whitespace, save it in a list
+            <[Noun]>           # Parse a Noun and save the result in a list
+            <[PostNoun=ws]>    # Parse whitespace, save it in a list
         )+
-        <Verb>              # Parse verb, save in scalar
-        <type=(?{'VN'})>    # Save literal in a scalar
+        <Verb>                 # Parse verb, save in scalar
+        <type=(?{'VN'})>       # Save literal in a scalar
     |
-        <debug: match>      # Turn on integrated debugger
-        <.Cmd= (?: mv? )>   # Parse but don't capture subpattern, for debugging purposes
-        <[File]>+           # Parse 1+ files and save them in a list
-        <debug:off>         # Turn off integrated debugger
-        <Dest=File>         # Parse a file and save in scalar
+        <debug: match>         # Turn on integrated debugger
+        <.Cmd= (?: mv? )>      # Parse but don't capture subpattern, for debugging purposes
+        <[File]>+              # Parse 1+ files and save them in a list
+        <debug:off>            # Turn off integrated debugger
+        <Dest=File>            # Parse a file and save in scalar
     )
-    <token: File>           # Define a subrule named File
-        <.ws>               #  - parse, but don't save whitespace
-        <MATCH= ([\w-]+)>   #  - parse subpattern and save in scalar
+    <token: File>              # Define a subrule named File
+        <.ws>                  #  - parse, but don't save whitespace
+        <MATCH= ([\w-]+)>      #  - parse subpattern and save in scalar
         
-    <token: Noun>           # Define a subrule named Noun
+    <token: Noun>              # Define a subrule named Noun
         cat | dog | fish | hamster
-    <rule: Verb>            # Define a whitespace sensitive subrule
-        eats                # Match a literal after any space
-        <Object=Noun>?      # Parse optional subrule Noun and save result under the key 'Object'
-    |                       # Or else...
-        <AUX>               # Parse subrule AUX and save result
-        <part=(eaten|seen)> # Match a literal, save under part
+    <rule: Verb>               # Define a whitespace sensitive subrule
+        eats                   # Match a literal after any space
+        <Object=Noun>?         # Parse optional subrule Noun and save result under the key 'Object'
+    |                          # Or else...
+        <AUX>                  # Parse subrule AUX and save result
+        <part=(eaten|seen)>    # Match a literal, save under part
         
-    <token: AUX>            # Define a whitespace insensitive subrule
-        (has | is)          # - match an alternative and capture
+    <token: AUX>               # Define a whitespace insensitive subrule
+        (has | is)             # - match an alternative and capture
         (?{ $MATCH = uc $^N }) # - use captured text as subrule result
 
 }x;
