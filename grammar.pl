@@ -12,40 +12,40 @@ use Data::Dumper;
 
     
 $parser = qr{
-(?:
-<Verb>
-<.ws>
-<Noun>
+    (?:
+        <Verb>
+        <.ws>
+        <Noun>
 
-<type{rand>0.5 ? 'VN' : 'VerbNoun'}>
-|
-(?:
-<[Noun]>
-<[PostNoun=ws]>
-)+
-<Verb>
-<type={'VN'}>
-|
-<debug:match>
-<.Cmd= (?: mv? )>
-<[File]>+
-<debug:off>
-<Dest=File>
-)
-<token: File>
-<.ws>
-<MATCH= ([\w-]+)>
-<token: Noun>
-cat | dog | fish
-<rule: Verb>
-eats
-<Object=Noun>?
-|
-<AUX>
-<part=(eaten|seen)>
-<token: AUX>
-(has | is)
-(?{$MATCH=uc $^N })
+        <type{rand>0.5 ? 'VN' : 'VerbNoun'}>
+    |
+        (?:
+            <[Noun]>
+            <[PostNoun=ws]>
+        )+
+        <Verb>
+        <type={'VN'}>
+    |
+        <debug: match>
+        <.Cmd= (?: mv? )>
+        <[File]>+
+        <debug:off>
+        <Dest=File>
+    )
+    <token: File>
+        <.ws>
+        <MATCH= ([\w-]+)>
+    <token: Noun>
+        cat | dog | fish
+    <rule: Verb>
+        eats
+        <Object=Noun>?
+    |
+        <AUX>
+        <part=(eaten|seen)>
+    <token: AUX>
+        (has | is)
+        (?{$MATCH=uc $^N })
 
         }x;
 
