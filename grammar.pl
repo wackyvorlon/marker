@@ -33,17 +33,17 @@ $parser = qr{
         <Dest=File>            # Parse a file and save in scalar
     )
     <token: File>              # Define a subrule named File
-        <.ws>                  #  - parse, but don't save whitespace
-        <MATCH= ([\w-]+)>      #  - parse subpattern and save in scalar
+        <.ws>                  # - parse, but don't save whitespace
+        <MATCH= ([\w-]+)>      # - parse subpattern and save in scalar
         
     <token: Noun>              # Define a subrule named Noun
         cat | dog | fish | hamster
     <rule: Verb>               # Define a whitespace sensitive subrule
-        eats                   # Match a literal after any space
-        <Object=Noun>?         # Parse optional subrule Noun and save result under the key 'Object'
+        eats                   # - match a literal after any space
+        <Object=Noun>?         # - parse optional subrule Noun and save result under the key 'Object'
     |                          # Or else...
-        <AUX>                  # Parse subrule AUX and save result
-        <part=(eaten|seen)>    # Match a literal, save under part
+        <AUX>                  # - parse subrule AUX and save result
+        <part=(eaten|seen)>    # - match a literal, save under part
         
     <token: AUX>               # Define a whitespace insensitive subrule
         (has | is)             # - match an alternative and capture
