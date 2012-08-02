@@ -13,6 +13,7 @@ This is done for compatibility with [Perlbrew](https://www.perlbrew.pl), a very 
 ## grammar.pl
 
 This is an attempt at playing with Regexp::Grammars. It doesn't work. The code reports an internal error, I'm not entirely sure why. The error is thus:
+
     Internal error: this shouldn't happen!
     Near '0':  at /Users/wackyvorlon/perl5/perlbrew/perls/perl-5.16.0/lib/site_perl/5.16.0/Regexp/Grammars.pm line 1711.
 
