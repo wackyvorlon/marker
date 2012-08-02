@@ -17,14 +17,14 @@ $parser = qr{
         <.ws>
         <Noun>
 
-        <type{rand>0.5 ? 'VN' : 'VerbNoun'}>
+        <type=(?{rand>0.5 ? 'VN' : 'VerbNoun'})>
     |
         (?:
             <[Noun]>
             <[PostNoun=ws]>
         )+
         <Verb>
-        <type={'VN'}>
+        <type=(?{'VN'})>
     |
         <debug: match>
         <.Cmd= (?: mv? )>
