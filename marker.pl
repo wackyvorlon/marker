@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/myperl
 
 #Load modules, use MD5 hash to identify already seen documents. Result of processing stored in a hash tied to a file.
 

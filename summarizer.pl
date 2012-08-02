@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/myperl
 
 use diagnostics;
 use Lingua::EN::Splitter qw(words);

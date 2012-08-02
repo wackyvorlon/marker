@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/myperl
 
 use Lingua::Any::Numbers qw(:std);
 #use diagnostics;

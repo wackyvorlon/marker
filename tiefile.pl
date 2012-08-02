@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/myperl -w
 
 use diagnostics;
 use Tie::File;

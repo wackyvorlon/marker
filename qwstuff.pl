@@ -1,3 +1,3 @@
-#!/usr/bin/perl
+#!/usr/bin/myperl
 
 print qw(bork baz foo);

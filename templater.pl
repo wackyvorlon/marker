@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/myperl -w
 # templater.pl --- A program to do templating for SOCR
 # Author: Paul Anderson <wackyvorlon@paul-andersons-macbook-pro-3.local>
 # Created: 19 Jul 2012

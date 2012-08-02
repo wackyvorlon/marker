@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/myperl
 
 use diagnostics;
 use YAML::XS qw(LoadFile Dump);

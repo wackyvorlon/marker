@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/myperl
 
 #Convert words on stdin to numbers.
 use diagnostics;

@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/myperl -w
 # yamloader.pl --- YAML Config Loader
 # Author: Paul Anderson <wackyvorlon@paul-andersons-macbook-pro-3.local>
 # Created: 24 Jul 2012
