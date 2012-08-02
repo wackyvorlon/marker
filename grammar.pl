@@ -36,7 +36,7 @@ $parser = qr{
         <.ws>
         <MATCH= ([\w-]+)>
     <token: Noun>
-        cat | dog | fish
+        cat | dog | fish | hamster
     <rule: Verb>
         eats
         <Object=Noun>?
