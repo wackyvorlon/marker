@@ -18,7 +18,7 @@ $game = new Game::Life(20);
 $starting = [ [ 1, 1, 1 ], [ 1, 0, 0 ], [ 0, 1, 0 ] ];
 
 for ( 1..20) {
-    push $starting, [int(rand(1)), int(rand(1)), int(rand(1))];
+    push $starting, [int(rand(2)), int(rand(2)), int(rand(2))];
     
 }
 
