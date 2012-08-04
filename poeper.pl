@@ -44,7 +44,6 @@ for ( 1 .. 10 ) {
 POE::Kernel->run();
 exit;
 
-
 __END__
 
 =head1 NAME
