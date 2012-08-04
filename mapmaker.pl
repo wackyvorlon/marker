@@ -18,8 +18,18 @@ $game->place_points(10,10,$starting);
 
 $game->process(20);   # Run the simulation through 20 iterations
 
-print "$_\n" foreach ($game->get_text_grid());
+&printer;
 
+$game->process(20);
+
+&printer;
+
+
+sub printer {
+    print "$_\n" foreach ($game->get_text_grid());
+    print "\n";
+    
+}
 
 
 __END__
