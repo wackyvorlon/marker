@@ -21,7 +21,7 @@ sub handler_start {
 sub handler_increment {
     my ( $kernel, $heap, $session ) = @_[ KERNEL, HEAP, SESSION ];
     print "Session ", $session->ID, " counted to ", ++$heap->{count}, ".\n";
-    $kernel->yield('increment') if $heap->{count} < 10;
+    $kernel->yield('increment')  if $heap->{count} < 10;
 
 }
 
