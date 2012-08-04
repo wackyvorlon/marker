@@ -25,8 +25,8 @@ $game->place_points( 10, 10, $starting );
 
 
 
-for ( 1 .. 100 ) {
-    $game->process(20);
+for ( 1 .. 200 ) {
+    $game->process(1);
     &printer;
 
 }
