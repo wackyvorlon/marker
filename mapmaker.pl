@@ -12,40 +12,32 @@ use Game::Life;
 use Data::Dumper;
 use diagnostics;
 
-
 $game = new Game::Life(20);
 
 $starting = [ [ 1, 1, 1 ], [ 1, 0, 0 ], [ 0, 1, 0 ] ];
 
-for ( 1..20) {
-    push $starting, [int(rand(2)), int(rand(2)), int(rand(2))];
-    
+for ( 1 .. 20 ) {
+    push $starting, [ int( rand(2) ), int( rand(2) ), int( rand(2) ) ];
+
 }
 
-$game->place_points(10,10,$starting);
+$game->place_points( 10, 10, $starting );
 
-#$game->process(20);   # Run the simulation through 20 iterations
 
-#&printer;
 
-#$game->process(20);
-
-#&printer;
-
-for ( 1..20) {
+for ( 1 .. 100 ) {
     $game->process(20);
     &printer;
-    
+
 }
 
 sub printer {
-    print "$_\n" foreach ($game->get_text_grid());
+    print "$_\n" foreach ( $game->get_text_grid() );
     print "\n";
-    
+
 }
 
-print Dumper(\$starting);
-
+#print Dumper( \$starting );
 
 __END__
 
