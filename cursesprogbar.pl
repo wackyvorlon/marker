@@ -9,6 +9,21 @@ use warnings;
 
 use Curses::Widgets::ProgressBar;
 
+$progress = Curses::Widgets::ProgressBsr->({
+    CAPTION => 'Progress',
+    CAPTIONCOL => 'yellow',
+    LENGTH => 10,
+    VALUE => 0,
+    FOREGROUND => undef,
+    BACKGROUND => 'black',
+    BORDER => 1,
+    BORDERCOL => undef,
+    HORIZONTAL => 1,
+    X => 1,
+    Y => 1,
+    MIN => 0,
+    MAX => 100,
+})
 
 __END__
 
