@@ -16,14 +16,19 @@ $starting = [ [ 1, 1, 1 ], [ 1, 0, 0 ], [ 0, 1, 0 ] ];
 
 $game->place_points(10,10,$starting);
 
-$game->process(20);   # Run the simulation through 20 iterations
+#$game->process(20);   # Run the simulation through 20 iterations
 
-&printer;
+#&printer;
 
-$game->process(20);
+#$game->process(20);
 
-&printer;
+#&printer;
 
+for ( 1..20) {
+    $game->process(20);
+    &printer;
+    
+}
 
 sub printer {
     print "$_\n" foreach ($game->get_text_grid());
