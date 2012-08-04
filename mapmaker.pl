@@ -9,10 +9,18 @@ use warnings;
 #use strict;
 
 use Game::Life;
+use Data::Dumper;
+use diagnostics;
+
 
 $game = new Game::Life(20);
 
 $starting = [ [ 1, 1, 1 ], [ 1, 0, 0 ], [ 0, 1, 0 ] ];
+
+for ( 1..20) {
+    push $starting, [int(rand(1)), int(rand(1)), int(rand(1))];
+    
+}
 
 $game->place_points(10,10,$starting);
 
@@ -35,6 +43,8 @@ sub printer {
     print "\n";
     
 }
+
+print Dumper(\$starting);
 
 
 __END__
