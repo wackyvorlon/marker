@@ -6,7 +6,7 @@
 
 use warnings;
 #use strict;
-
+use Curses::Widgets;
 use Curses::Widgets::ProgressBar;
 
 $progress = Curses::Widgets::ProgressBsr->({
