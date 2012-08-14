@@ -19,7 +19,7 @@ $numb="7316717653133062491922511967442657474235534919493496983520312774506326239
 $result=0;
 
 
-for ($numb=~/(\d)(\d)(\d)(\d)(\d)/gi) {
+while ($numb=~/(\d)(\d)(\d)(\d)(\d)/gi) {
     $cur = $1*$2*$3*$4*$5;          # Put the product in a variable.
     pos $numb=(pos $numb) - 4;                   # Reset position where matching will begin.
                                              # pos $num defaults to the position just
