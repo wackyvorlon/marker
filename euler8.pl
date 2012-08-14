@@ -9,7 +9,9 @@ use Data::Dumper;
 use diagnostics;
 use 5.14.0;
 
-use strict;
+#use strict;
+no strict;
+
 
 # The number.
 
@@ -19,8 +21,10 @@ my $num="73167176531330624919225119674426574742355349194934969835203127745063262
 #my @products;
 my $result;
 
+$result=0;
 
-while ($num=~/(\d)(\d)(\d)(\d)(\d)/gi) {
+
+for ($num=~/(\d)(\d)(\d)(\d)(\d)/gi) {
         #print $1*$2*$3*$4*$5."\n";
     $cur = $1*$2*$3*$4*$5;          # Put the product in our array.
     pos $num=(pos $num)-4;                   # Reset position where matching will begin.
@@ -30,8 +34,9 @@ while ($num=~/(\d)(\d)(\d)(\d)(\d)/gi) {
                                              # the *first* character.
     #$cur = $1*$2*$3*$4*$5;
     
-    $result = $cur<=>$result ? $cur;         # If the curent value is greater than previous, set
-                                           # $result to new value.
+    #$result = $cur<=>$result ? $cur;         # If the curent value is greater than previous, set
+    # $result to new value.
+    
     
 }
 
