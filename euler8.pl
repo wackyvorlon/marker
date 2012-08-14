@@ -9,7 +9,7 @@ use Data::Dumper;
 use diagnostics;
 use 5.14.0;
 
-#use strict;
+use strict;
 
 # The number.
 
