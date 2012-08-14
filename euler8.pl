@@ -21,7 +21,7 @@ $result=0;
 
 for ($numb=~/(\d)(\d)(\d)(\d)(\d)/gi) {
     $cur = $1*$2*$3*$4*$5;          # Put the product in a variable.
-    pos =(pos() - 4);                   # Reset position where matching will begin.
+    pos $numb=(pos $numb - 4);                   # Reset position where matching will begin.
                                              # pos $num defaults to the position just
                                              # after the *last* character in our match.
                                              # We want our second match to begin after
